@@ -1,24 +1,26 @@
-# Lumen PHP Framework
+# Lumen PHP Framework - Project Antikode
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+- SQL query file can be found on `docroot/query.sql`
+- PHP version 7.4.20
+- MySql version 5.7.32
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Setup
+- clone the repository
+- install all dependecy by running `composer install`
+- copy the `.env.example` file `cp .env.example .env`
+- copy the `.env.testing.example` file `cp .env.testing.example .env.testing` to run the unit test
+- edit the `.env` and `.env.testing` file value (primarily for database host and database password)
+- create database with collation `utf8mb4` and run `php artisan migrate` to migrate the database
+- run `php -S localhost:8008 -t public` to serve on localhost
 
-## Official Documentation
+### Code Structure
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+- `routes` are defined under `routes/web.php`
+- `models` are located under the `App/Adapters/Gateways/Database` namespace
+- `controllers` are located under the `App/Http/Controllers` namespace
+- `usecase` are located under the `App/UseCase` namespace
 
-## Contributing
+### Tests
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- test files are located under the `tests` directory
+- unit test can be used to generate fake data
